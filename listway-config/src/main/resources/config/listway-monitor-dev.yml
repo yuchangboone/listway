@@ -1,0 +1,13 @@
+spring:
+  # 安全配置
+  security:
+    user:
+      name: ENC(+zpM2cP5MYKDXkJUDbqKcg==)     # listway
+      password: ENC(+zpM2cP5MYKDXkJUDbqKcg==) # listway
+  boot:
+    admin:
+      ui:
+        resource-locations: 'classpath:/ui/,classpath:/static/'
+        template-location: 'classpath:/ui/'
+        title: 'listway 服务状态监控'
+        brand: 'listway 服务状态监控'

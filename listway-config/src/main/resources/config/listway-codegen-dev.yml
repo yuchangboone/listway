@@ -1,0 +1,17 @@
+## spring security 配置
+security:
+  oauth2:
+    client:
+      client-id: ENC(aNRgEUsj9Af+QQGPJEODWg==)
+      client-secret: ENC(aNRgEUsj9Af+QQGPJEODWg==)
+      scope: server
+# 数据源配置
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: YUcb!@#123
+    url: jdbc:mysql://192.168.18.7:3306/listway?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+  resources:
+    static-locations: classpath:/static/,classpath:/views/
