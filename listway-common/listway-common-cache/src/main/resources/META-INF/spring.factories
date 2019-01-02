@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.listway.common.cache.RedisTemplateConfig,\
+    com.listway.common.cache.RedisCacheManagerConfig,\
+    com.listway.common.cache.RedisCacheAutoConfiguration
+

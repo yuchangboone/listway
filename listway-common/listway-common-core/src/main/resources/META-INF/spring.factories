@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.listway.common.core.config.JacksonConfig,\
+  com.listway.common.core.config.MessageSourceConfig,\
+  com.listway.common.core.config.RestTemplateConfig,\
+  com.listway.common.core.util.SpringContextHolder

@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.listway.common.security.filter.TenantContextHolderFilter,\
+  com.listway.common.security.feign.PigxFeignClientConfiguration,\
+  com.listway.common.security.feign.PigxFeignTenantConfiguration,\
+  com.listway.common.security.service.PigxUserDetailsServiceImpl
