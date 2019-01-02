@@ -1,0 +1,36 @@
+server:
+  port: 9999
+  tomcat:
+    uri-encoding:  UTF-8
+
+
+spring:
+  application:
+    name: @artifactId@
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        service-id: listway-config
+  profiles:
+    active: dev
+
+# 注册中心
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://listway:listway@192.168.18.7:8761/eureka/
+
+
