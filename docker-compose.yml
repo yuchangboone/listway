@@ -1,0 +1,129 @@
+version: '2'
+services:
+  listway-mysql:
+    build:
+      context: ./
+      dockerfile: ./doc/db/Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    container_name: listway-mysql
+    image: listway-mysql
+    ports:
+      - 3306:3306
+
+  listway-zookeeper:
+    image: zookeeper:3.4.13
+    restart: always
+    container_name: listway-zookeeper
+    ports:
+      - 2181:2181
+
+  listway-redis:
+    image: redis:4.0.10
+    restart: always
+    container_name: listway-redis
+    ports:
+      - 6379:6379
+
+  listway-eureka:
+    build:
+      context: ./
+      dockerfile: ./listway-eureka/Dockerfile
+    restart: always
+    container_name: listway-eureka
+    image: listway-eureka
+    ports:
+      - 8761:8761
+
+  listway-config:
+    build:
+      context: ./
+      dockerfile: ./listway-config/Dockerfile
+    restart: always
+    container_name: listway-config
+    image: listway-config
+    ports:
+      - 8888:8888
+
+  listway-gateway:
+    build:
+      context: ./
+      dockerfile: ./listway-gateway/Dockerfile
+    restart: always
+    container_name: listway-gateway
+    image: listway-gateway
+    ports:
+      - 9999:9999
+
+  listway-auth:
+    build:
+      context: ./
+      dockerfile: ./listway-auth/Dockerfile
+    restart: always
+    container_name: listway-auth
+    image: listway-auth
+    ports:
+      - 3000:3000
+
+  listway-upms:
+    build:
+      context: ./
+      dockerfile: ./listway-upms/listway-upms-biz/Dockerfile
+    restart: always
+    container_name: listway-upms
+    image: listway-upms
+    ports:
+      - 4000:4000
+
+  listway-monitor:
+    build:
+      context: ./
+      dockerfile: ./listway-visual/listway-monitor/Dockerfile
+    restart: always
+    image: listway-monitor
+    container_name: listway-monitor
+    ports:
+      - 5001:5001
+
+  listway-daemon:
+    build:
+      context: ./
+      dockerfile: ./listway-visual/listway-daemon/Dockerfile
+    restart: always
+    image: listway-daemon
+    container_name: listway-daemon
+    ports:
+      - 5002:5002
+
+  listway-codegen:
+    build:
+      context: ./
+      dockerfile: ./listway-visual/listway-codegen/Dockerfile
+    restart: always
+    image: listway-codegen
+    container_name: listway-codegen
+    ports:
+      - 5003:5003
+
+
+  listway-activiti:
+    build:
+      context: ./
+      dockerfile: ./listway-visual/listway-activiti/Dockerfile
+    restart: always
+    image: listway-activiti
+    container_name: listway-activiti
+    ports:
+      - 5005:5005
+
+  listway-tx-manager:
+    build:
+      context: ./
+      dockerfile: ./listway-visual/listway-tx-manager/Dockerfile
+    restart: always
+    image: listway-tx-manager
+    container_name: listway-tx-manager
+    ports:
+      - 5004:5004
+      - 9998:9998
